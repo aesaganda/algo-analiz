@@ -1,6 +1,7 @@
 import numpy as np
 
-def check_cycle
+def check_cycle():
+    pass
 
 if __name__ == "__main__":
     a = np.matrix([[0, 0, 1, 0, 0], [0, 0, 1, 0, 0], [0, 0, 0, 1, 1],

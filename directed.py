@@ -12,6 +12,7 @@ if __name__ == "__main__":
     b = numpy.matrix([[0, 1, 1, 0, 0], [1, 0, 0, 1, 1], [1, 0, 0, 0, 0],
                       [0, 1, 0, 0, 1], [0, 1, 0, 1, 0]])
 
+    # simetrik ise yönsüzdür
     if (check_symmetric(a) == False):
         print("a yonlu bir graftir")
     else:

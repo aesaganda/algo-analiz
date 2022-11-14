@@ -9,13 +9,13 @@ class Graph:
 
     def __init__(self, vertices):
 
-        # No. of vertices
-        self.V = vertices  # No. of vertices
+        # Kenar sayisi
+        self.V = vertices  # Kenar sayisi
 
         # Default dictionary to store graph
         self.graph = defaultdict(list)
 
-    # Function to add an edge to graph
+    # Grafa köşe ekleme
     def addEdge(self, v, w):
 
         # Add w to v_s list
@@ -24,34 +24,24 @@ class Graph:
         # Add v to w_s list
         self.graph[w].append(v)
 
-    # A recursive function that uses
-    # visited[] and parent to detect
-    # cycle in subgraph reachable from vertex v.
+    # Cycle kontrolünün gerçekleştirilmesi
     def isCyclicUtil(self, v, visited, parent):
 
-        # Mark the current node as visited
+        # dolaşılan node işaretlendi
         visited[v] = True
 
-        # Recur for all the vertices
-        # adjacent to this vertex
+        # komşuların kontrol edilmesi
         for i in self.graph[v]:
 
-            # If the node is not
-            # visited then recurse on it
+            # eğer komşu köse ziyaret edilmemişse oraya git
             if visited[i] == False:
                 if (self.isCyclicUtil(i, visited, v)):
                     return True
-            # If an adjacent vertex is
-            # visited and not parent
-            # of current vertex,
-            # then there is a cycle
+            # Eğer parent olmayan kenar iki kez gezildiyse döngü var demektir
             elif parent != i:
                 return True
 
         return False
-
-    # Returns true if the graph
-    # contains a cycle, else false.
 
     def isCyclic(self):
 
